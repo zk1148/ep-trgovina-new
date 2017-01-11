@@ -1,0 +1,27 @@
+sudo nano /etc/apache2/sites-available/default-ssl.conf
+
+	<Directory  /var/www/html/zavarovano/ > ///nasa trgovina
+	SSLVerifyClient  require
+	SSLVerifyDepth 1
+	</Directory >
+	SSLEngine on
+	SSLCertificateFile /etc/apache2/ssl/webmaster@localhost-cert.pem
+	SSLCertificateKeyFile /etc/apache2/ssl/webmaster@localhost-key.pem
+	SSLCACertificateFile /etc/apache2/ssl/3xkCA-cacert.pem
+	SSLCARevocationFile /etc/apache2/ssl/3xkCA-crl.pem
+	SSLCARevocationCheck chain
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+
+firefox
+	1) Preferences
+	2) Advanced
+	3) View Certificates
+	4) Authorities : 
+			Import: 3xkCA-cacert.pem
+	5) Your:
+		Import: administrator@3xkca.si-cert.p12
+			prodajalec1@3xkca.si-cert.p12
+			prodajalec2@3xkca.si-cert.p12
