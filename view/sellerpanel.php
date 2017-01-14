@@ -63,7 +63,11 @@ if (isset($_GET["manage"])) {
                 } elseif ($mode === "urediAcc") {
                     echo "Upravljaj račun";
                 } elseif ($mode === "create") {
-                    echo "Ustvari stranko";
+                    if ($registracija == 1) {
+                        echo "Registracija";
+                    } else {
+                        echo "Ustvari stranko";
+                    }
                 } elseif ($mode === "seznamStrank") {
                     echo "Upravljaj s strankami";
                 }

@@ -118,13 +118,13 @@ class CartController
             exit;
         }
         $narociloId = Narocilo_B::insert([
-            "cenaSkupaj" => CartController::cenaSkupaj(),
-            "idStranke" => $_SESSION["idUporabnik"]
+            "znesek" => CartController::cenaSkupaj(),
+            "stranka_id" => $_SESSION["idUporabnik"]
         ]);
         foreach ($_SESSION["cart"] as $id => $kolicina) {
             Postavka_B::insert([
-                "idNarocilo" => $narociloId,
-                "idIzdelek" => $id,
+                "narocilo_id" => $narociloId,
+                "izdelek_id" => $id,
                 "kolicina" => $kolicina
             ]);
         }

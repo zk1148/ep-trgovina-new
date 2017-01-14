@@ -60,7 +60,7 @@ class Izdelek_B extends AbstractDB
             . "COUNT(o.ocena) AS count_ocena"
             . " FROM Izdelek i  LEFT JOIN Ocena o"
             . " ON i.idIzdelek = o.izdelek_id  WHERE i.aktiven=1 AND i.idIzdelek IN"
-            . " (SELECT idIzdelek FROM Izdelek WHERE MATCH (ime,opis) AGAINST ('".$i."' IN BOOLEAN MODE))"
+            . " (SELECT i.idIzdelek FROM Izdelek WHERE MATCH (ime,opis) AGAINST ('".$i."' IN BOOLEAN MODE))"
             . "GROUP BY i.idIzdelek", $params);
 
 

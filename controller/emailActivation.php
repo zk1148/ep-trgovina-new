@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: ep
- * Date: 5.1.2016
- * Time: 11:46
- */
+
 
 require_once 'static/swiftmailer-5.x/lib/swift_required.php';
 
@@ -21,18 +16,18 @@ if (isset($_GET["id"]) && isset($_GET["ime"]) && isset($_GET["email"])) {
 }
 
 $transport = Swift_SmtpTransport::newInstance('smtp.gmail.com', 465, "ssl")
-    ->setUsername('matic@vsegrad.si')
-    ->setPassword('Web73Mail!');
+    ->setUsername('best.super.awesome4937@gmail.com')
+    ->setPassword('testiranje');
 
 $mailer = Swift_Mailer::newInstance($transport);
 
-$message = Swift_Message::newInstance('Aktivacija racuna v eTrgovini')
-    ->setFrom(array('matic@vsegrad.si' => 'eTrgovina JKMN'))
+$message = Swift_Message::newInstance('Aktivacija racuna v 3xK')
+    ->setFrom(array('best.super.awesome4937@gmail.com' => '3xK'))
     ->setTo(array($email))
     ->setBody(
     'Pozdravljeni,
 
-    pošiljamo vam povezavo za aktivacijo uporabniškega računa v trgovini eTrgovina 3XK:
+    pošiljamo vam povezavo za aktivacijo uporabniškega računa v trgovini 3xK:
     '. $url . '
 
     Lep dan še naprej!');

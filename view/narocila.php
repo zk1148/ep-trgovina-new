@@ -27,11 +27,11 @@
                     <tr>
                         <td><?= $narocilo["idNarocilo"] ?></td>
                         <td><?= $narocilo["stranka"]["ime"]." ".$narocilo["stranka"]["priimek"] ?></td>
-                        <td><?= $narocilo["cenaSkupaj"] ?> €</td>
-                        <td><?= $narocilo["datumOddaje"] ?></td>
+                        <td><?= $narocilo["znesek"] ?> €</td>
+                        <td><?= $narocilo["datum_oddaje"] ?></td>
                         <td><?= $narocilo["statusDisplay"] ?></td>
                         <td>
-                            <?php if ($narocilo["status"] == 1 && $_SESSION["idVloga"] != 3): ?>
+                            <?php if ($narocilo["status_id"] == 1 && $_SESSION["vloga_id"] != 3): ?>
                                 <form action="<?= BASE_URL . "narocila/akcije" ?>" method="post"
                                       style="display: inline-block">
                                     <input type="hidden" name="id" value="<?= $narocilo["idNarocilo"] ?>">

@@ -63,6 +63,10 @@ class IzdelkiController
         ];
         $data = filter_input_array(INPUT_POST, $validationRules);
         try {
+            if ($data["ocena"] == false) {
+                header("Location:" . BASE_URL . "store?id=" . $data["id"]);
+                return;
+            }
             $izdelek = Izdelek_B::get($data); // Izdelek mora obstajati
             Ocena_B::insertOrUpdate([
                     "uporabnik_id" => $_SESSION["idUporabnik"],
@@ -72,20 +76,21 @@ class IzdelkiController
             );
             header("Location:" . BASE_URL . "store?id=" . $data["id"]);
         } catch (Exception $e) {
+            var_dump($data);
             die($e->getMessage());
         }
 
     }
 
-//    public static function rest()
-//    {
-//        header('Content-Type: application/json');
-//        $izdelki = Izdelek_B::getAll();
-//        foreach ($izdelki as $_ => &$izdelek) {
-//            $izdelek["slike"] = SlikaIzdelkaDB::get($izdelek);
-//        }
-//        echo json_encode($izdelki);
-//    }
+    public static function rest()
+    {
+        header('Content-Type: application/json');
+        $izdelki = Izdelek_B::getAll();
+        foreach ($izdelki as $_ => &$izdelek) {
+            $izdelek["slike"] = SlikaIzdelkaDB::get($izdelek);
+        }
+        echo json_encode($izdelki);
+    }
 
 
     public static function add()

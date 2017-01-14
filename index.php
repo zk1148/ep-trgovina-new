@@ -104,7 +104,6 @@ $urls = [
     },
     "api" => function () {
         IzdelkiController::rest();
-        //echo ViewHelper::render("controller/RestController.php");
     },
     "testNarocilo" => function () {
         NarociloDBTest::index();

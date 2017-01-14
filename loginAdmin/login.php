@@ -16,8 +16,8 @@ try {
         exit;
     }
 
-    if (password_verify($_POST["password"], $result["geslo"])) {
-    //if ($result["geslo"] === SHA1($_POST["password"])) {
+//    if (password_verify($_POST["password"], $result["geslo"])) {
+    if ($result["geslo"] === SHA1($_POST["password"])) {
 
         $_SESSION["idUporabnik"] = $result["idUporabnik"];
         $_SESSION["vloga_id"] = $result["vloga_id"];

@@ -7,7 +7,6 @@ require_once(dirname(__FILE__).'/../model/Slika_B.php');
 header('Content-Type: application/json');
 
 $http_method = filter_input(INPUT_SERVER, "REQUEST_METHOD", FILTER_SANITIZE_SPECIAL_CHARS);
-//$server_addr = filter_input(INPUT_SERVER, "SERVER_ADDR", FILTER_SANITIZE_SPECIAL_CHARS);
 $server_addr = "10.0.2.2"; // kadar dostopamo preko Android emulatorja
 $php_self = filter_input(INPUT_SERVER, "PHP_SELF", FILTER_SANITIZE_SPECIAL_CHARS);
 $script_uri = substr($php_self, 0, strripos($php_self, "/"));
@@ -51,11 +50,11 @@ if (isset($path[1])) {
 switch ($resource) {
     case "izdelki":
         if ($http_method == "GET" && $param == null) {
-            // getAll
+            // prva slika app
             $izdelki = Izdelek_B::getAllRest();
             echo json_encode($izdelki);
         } else if ($http_method == "GET" && $param != null) {
-            // get
+            // za drugo sliko
             $izdelek = Izdelek_B::getRest(["id" => $param]);
             if ($izdelek != null) {
 
@@ -65,6 +64,7 @@ switch ($resource) {
             }
         } else {
             // error
+            echo "evo me";
             echo returnError(404, "Unknown request: [$http_method $resource]");
         }
         break;

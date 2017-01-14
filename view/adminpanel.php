@@ -89,13 +89,15 @@ if ($user["aktiven"] === '1') {
                         </div>
 
                         <?php
-                        if ($mode === "edit")
+                        if ($mode === "edit") {
+                            $id_za_aktivirat = $_GET["id"];
                             echo "
                                 <div class=\"form-group\">
                                     <label>Aktivno : $active</label> <br />
-                                    <a class='$class' href='userpanel?aktivno=$aktivno&id=$id'>$value</a>
+                                    <a class='$class' href='userpanel?aktivno=$aktivno&id=$id_za_aktivirat'>$value</a>
                                 </div>
                             ";
+                        }
                         ?>
 
                         <hr>
