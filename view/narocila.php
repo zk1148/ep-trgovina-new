@@ -44,7 +44,7 @@
                                     <input type="hidden" name="do" value="storniraj">
                                     <button class="btn btn-danger btn-outline btn-sm" type="submit">Storniraj</button>
                                 </form>
-                            <?php elseif ($narocilo["status"] == 1): ?>
+                            <?php elseif ($narocilo["status_id"] == 1): ?>
                                 <form action="<?= BASE_URL . "narocila/akcije" ?>" method="post"
                                       style="display:inline-block;">
                                     <input type="hidden" name="id" value="<?= $narocilo["idNarocilo"] ?>">
