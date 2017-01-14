@@ -8,9 +8,9 @@ function getRandomWord($len = 5)
 }
 
 // posodobi status uporabnika
-if (isset($_GET["aktivno"]) && isset($_GET["id"]) && $_GET["id"] != -1) {
+if (isset($_GET["aktiven"]) && isset($_GET["id"]) && $_GET["id"] != -1) {
     // le administrator !
-    $params = array("idUporabnik" => filter_input(INPUT_GET, 'id', FILTER_SANITIZE_SPECIAL_CHARS), "aktiven" => filter_input(INPUT_GET, 'aktivno', FILTER_SANITIZE_SPECIAL_CHARS));
+    $params = array("idUporabnik" => filter_input(INPUT_GET, 'id', FILTER_SANITIZE_SPECIAL_CHARS), "aktiven" => filter_input(INPUT_GET, 'aktiven', FILTER_SANITIZE_SPECIAL_CHARS));
     Uporabnik_B::updateAktivno($params);
 
     if (isset($_GET["f"]) && $_GET["f"] == "p") {
